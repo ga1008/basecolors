@@ -244,4 +244,3 @@ def color_it():
 
 if __name__ == '__main__':
     show_all(False)
-    # print(red("测试文本"))
