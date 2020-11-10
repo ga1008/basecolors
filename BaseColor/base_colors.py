@@ -1,3 +1,4 @@
+import platform
 from argparse import ArgumentParser, RawTextHelpFormatter
 from time import sleep
 
@@ -19,10 +20,13 @@ def color(txt, show_mode=None, back_color=None, front_color=None):
     :return: 返回上色后的文本
     提示：在一些终端可能无法显示，例如 windows
     """
-    show_mode = color_show_modes.get(show_mode, 0)
-    back_code = color_back_codes.get(back_color, 48)
-    front_code = color_front_codes.get(front_color, 38)
-    return f"\033[{show_mode};{front_code};{back_code}m{txt}\033[0m"
+    if platform.system() == "Linux":
+        show_mode = color_show_modes.get(show_mode, 0)
+        back_code = color_back_codes.get(back_color, 48)
+        front_code = color_front_codes.get(front_color, 38)
+        return f"\033[{show_mode};{front_code};{back_code}m{txt}\033[0m"
+    else:
+        return txt
 
 
 def wait(rw):
@@ -92,7 +96,10 @@ def red(txt, with_bgc=None):
     :param txt:
     :return:
     """
-    return color(txt, "default", with_bgc or "ordinary", "red")
+    if platform.system() == "Linux":
+        return color(txt, "default", with_bgc or "ordinary", "red")
+    else:
+        return txt
 
 
 def green(txt, with_bgc=None):
@@ -102,7 +109,10 @@ def green(txt, with_bgc=None):
     :param with_bgc: 需要添加的背景色，默认不显示
     :return:
     """
-    return color(txt, "default", with_bgc or "ordinary", "green")
+    if platform.system() == "Linux":
+        return color(txt, "default", with_bgc or "ordinary", "green")
+    else:
+        return txt
 
 
 def yellow(txt, with_bgc=None):
@@ -112,7 +122,10 @@ def yellow(txt, with_bgc=None):
     :param with_bgc: 需要添加的背景色，默认不显示
     :return:
     """
-    return color(txt, "default", with_bgc or "ordinary", "yellow")
+    if platform.system() == "Linux":
+        return color(txt, "default", with_bgc or "ordinary", "yellow")
+    else:
+        return txt
 
 
 def blue(txt, with_bgc=None):
@@ -122,7 +135,10 @@ def blue(txt, with_bgc=None):
     :param with_bgc: 需要添加的背景色，默认不显示
     :return:
     """
-    return color(txt, "default", with_bgc or "ordinary", "blue")
+    if platform.system() == "Linux":
+        return color(txt, "default", with_bgc or "ordinary", "blue")
+    else:
+        return txt
 
 
 def magenta(txt, with_bgc=None):
@@ -132,7 +148,10 @@ def magenta(txt, with_bgc=None):
     :param with_bgc: 需要添加的背景色，默认不显示
     :return:
     """
-    return color(txt, "default", with_bgc or "ordinary", "magenta")
+    if platform.system() == "Linux":
+        return color(txt, "default", with_bgc or "ordinary", "magenta")
+    else:
+        return txt
 
 
 def cyan(txt, with_bgc=None):
@@ -142,7 +161,10 @@ def cyan(txt, with_bgc=None):
     :param with_bgc: 需要添加的背景色，默认不显示
     :return:
     """
-    return color(txt, "default", with_bgc or "ordinary", "cyan")
+    if platform.system() == "Linux":
+        return color(txt, "default", with_bgc or "ordinary", "cyan")
+    else:
+        return txt
 
 
 def hcyan(txt, with_bgc=None):
@@ -152,7 +174,10 @@ def hcyan(txt, with_bgc=None):
     :param with_bgc: 需要添加的背景色，默认不显示
     :return:
     """
-    return color(txt, "highlight", with_bgc or "ordinary", "cyan")
+    if platform.system() == "Linux":
+        return color(txt, "highlight", with_bgc or "ordinary", "cyan")
+    else:
+        return txt
 
 
 def hblue(txt, with_bgc=None):
@@ -162,7 +187,10 @@ def hblue(txt, with_bgc=None):
     :param with_bgc: 需要添加的背景色，默认不显示
     :return:
     """
-    return color(txt, "highlight", with_bgc or "ordinary", "blue")
+    if platform.system() == "Linux":
+        return color(txt, "highlight", with_bgc or "ordinary", "blue")
+    else:
+        return txt
 
 
 def hmagenta(txt, with_bgc=None):
@@ -172,7 +200,10 @@ def hmagenta(txt, with_bgc=None):
     :param with_bgc: 需要添加的背景色，默认不显示
     :return:
     """
-    return color(txt, "highlight", with_bgc or "ordinary", "magenta")
+    if platform.system() == "Linux":
+        return color(txt, "highlight", with_bgc or "ordinary", "magenta")
+    else:
+        return txt
 
 
 def hyellow(txt, with_bgc=None):
@@ -182,7 +213,10 @@ def hyellow(txt, with_bgc=None):
     :param with_bgc: 需要添加的背景色，默认不显示
     :return:
     """
-    return color(txt, "highlight", with_bgc or "ordinary", "yellow")
+    if platform.system() == "Linux":
+        return color(txt, "highlight", with_bgc or "ordinary", "yellow")
+    else:
+        return txt
 
 
 def hgreen(txt, with_bgc=None):
@@ -192,7 +226,10 @@ def hgreen(txt, with_bgc=None):
     :param with_bgc: 需要添加的背景色，默认不显示
     :return:
     """
-    return color(txt, "highlight", with_bgc or "ordinary", "green")
+    if platform.system() == "Linux":
+        return color(txt, "highlight", with_bgc or "ordinary", "green")
+    else:
+        return txt
 
 
 def hred(txt, with_bgc=None):
@@ -202,7 +239,10 @@ def hred(txt, with_bgc=None):
     :param with_bgc: 需要添加的背景色，默认不显示
     :return:
     """
-    return color(txt, "highlight", with_bgc or "ordinary", "red")
+    if platform.system() == "Linux":
+        return color(txt, "highlight", with_bgc or "ordinary", "red")
+    else:
+        return txt
 
 
 def color_it():
