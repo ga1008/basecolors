@@ -5,7 +5,7 @@ using_setuptools = True
 
 setup_args = {
     'name': 'basecolors',
-    'version': '0.0.2',
+    'version': '0.1.1',
     'url': 'https://github.com/ga1008/basecolors',
     'description': '在终端显示基本的文本颜色',
     'long_description': open('README.md', encoding="utf-8").read(),
